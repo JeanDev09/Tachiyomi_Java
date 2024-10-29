@@ -1,10 +1,6 @@
 package eu.kanade.tachiyomi;
 
-/**
- *
- * @author jeandev
- */
-
+/// @author jeandev
 import eu.kanade.tachiyomi.ui.Tachiyomi;
 import javax.swing.*;
 
