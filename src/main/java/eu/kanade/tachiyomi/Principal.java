@@ -1,27 +1,35 @@
 package eu.kanade.tachiyomi;
 
-/// @author jeandev
 import eu.kanade.tachiyomi.ui.Tachiyomi;
-import javax.swing.*;
 
+/**
+ *
+ * @author jean
+ */
 public class Principal {
-    public static void main(String[] args) {
-        // Configurar el look and feel de la UI
+    public static void main(){
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
         try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (Exception e) {
-            e.printStackTrace();
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Tachiyomi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        
+        //</editor-fold>
 
-        // Iniciar la ventana en el hilo de eventos de Swing
-        SwingUtilities.invokeLater(() -> {
-            JFrame frame = new JFrame("Tachiyomi");
-            Tachiyomi tachiyomi = new Tachiyomi();
-            frame.setContentPane(tachiyomi.getPanelPrincipal());
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.pack();
-            frame.setVisible(true);
-            frame.setLocationRelativeTo(null);
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(() -> {
+            new Tachiyomi().setVisible(true);
         });
     }
 }
